@@ -262,16 +262,37 @@ nav:hover{
 }
 
 .nav-dropdown{
-
     position:relative;
+}
+
+
+/* Keep a hover bridge between button and menu */
+
+.nav-dropdown::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    width:100%;
+
+    height:15px;
 
 }
+
+
+
+/* Dropdown panel */
 
 .nav-dropdown-menu{
 
     position:absolute;
 
-    top:120%;
+    top:calc(100% + 10px);
 
     left:0;
 
@@ -279,55 +300,68 @@ nav:hover{
 
     display:none;
 
-    background:rgba(255,255,255,.95);
+    background:rgba(255,255,255,.96);
 
     backdrop-filter:blur(20px);
 
     border-radius:18px;
 
-    border:1px solid #e5e7eb;
+    border:1px solid #e2e8f0;
 
     overflow:hidden;
 
     box-shadow:
-        0 18px 50px rgba(0,0,0,.12);
 
-    animation:menuFade .25s ease;
+        0 20px 50px rgba(15,23,42,.15);
+
+    z-index:9999;
+
 }
 
-.nav-dropdown:hover .nav-dropdown-menu{
+
+
+/* Keep open while hovering */
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown-menu:hover{
 
     display:block;
 
 }
 
+
+
+/* Items */
+
 .dropdown-item{
 
     width:100%;
 
+    padding:14px 20px;
+
     border:none;
 
-    background:none;
+    background:transparent;
 
     text-align:left;
 
-    padding:15px 20px;
+    cursor:pointer;
 
     font-size:14px;
 
     color:#475569;
 
-    cursor:pointer;
-
     transition:.25s;
 
 }
+
+
 
 .dropdown-item:hover{
 
     background:#eef2ff;
 
-    color:var(--primary);
+    color:#4f46e5;
 
     padding-left:28px;
 
